@@ -1,17 +1,20 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, Text} from 'react-native';
-import IconTeste from './src/images/svg/logo_symbol.svg';
-import { colors } from './src/styles/colors/colors';
-import { fonts } from './src/styles/fonts/fonts';
+
+import {StatusBar} from 'react-native';
+
+import {colors} from './src/styles/colors/colors';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {Routes} from './src/routes/Routes';
 
 const App = (): React.JSX.Element => {
   return (
-    <SafeAreaView
-      style={{height: '100%', alignItems: 'center', justifyContent: 'center'}}>
+    <>
       <StatusBar barStyle={'light-content'} backgroundColor={colors.pink300} />
-      <IconTeste />
-      <Text style={{fontFamily: fonts.karla.bold, fontSize: 50}}>e Leve</Text>
-    </SafeAreaView>
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>
+    </>
   );
 };
 
