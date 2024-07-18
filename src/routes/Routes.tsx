@@ -5,6 +5,8 @@ import {colors} from '../styles/colors/colors';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+import screens from '../screens';
+
 import LotusIconActive from '../images/svg/navigationIcons/ic_lotus_active.svg';
 import LotusIconInactive from '../images/svg/navigationIcons/ic_lotus_inactive.svg';
 
@@ -18,16 +20,6 @@ import GratitudeIconActive from '../images/svg/navigationIcons/ic_journal_active
 import GratitudeIconInactive from '../images/svg/navigationIcons/ic_journal_inactive.svg';
 
 import LogoIcon from '../images/svg/navigationIcons/ic_logo.svg';
-
-import SplashScreen from '../screens/InitialSetup/SplashScreen';
-import HelloScreen from '../screens/InitialSetup/Hello';
-import HomeScreen from '../screens/Home';
-import HooponoponoScreen from '../screens/Hooponopono';
-import AboutScreen from '../screens/About';
-import StartMeditationScreen from '../screens/Meditation/StartMeditaion';
-import MeditaionPraticeScreen from '../screens/Meditation/MeditationPraticeScreen';
-import GratitudeDiaryScreen from '../screens/Gratitude/GratitudeDiary';
-import AddGratitudeScreen from '../screens/Gratitude/AddGratitude';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -86,11 +78,11 @@ const MenuTabs = () => {
           paddingBottom: 10,
         },
       })}>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Ho oponopono" component={HooponoponoScreen} />
-      <Tab.Screen name="e Leve" component={AboutScreen} />
-      <Tab.Screen name="Meditação" component={StartMeditationScreen} />
-      <Tab.Screen name="Gratidão" component={GratitudeDiaryScreen} />
+      <Tab.Screen name="Home" component={screens.HomeScreen} />
+      <Tab.Screen name="Ho oponopono" component={screens.HooponoponoScreen} />
+      <Tab.Screen name="e Leve" component={screens.AboutScreen} />
+      <Tab.Screen name="Meditação" component={screens.StartMeditationScreen} />
+      <Tab.Screen name="Gratidão" component={screens.GratitudeDiaryScreen} />
     </Tab.Navigator>
   );
 };
@@ -102,12 +94,12 @@ export const Routes = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="SplashScreen" component={SplashScreen} />
-      <Stack.Screen name="Hello" component={HelloScreen} />
+      <Stack.Screen name="SplashScreen" component={screens.SplashScreen} />
+      <Stack.Screen name="Hello" component={screens.HelloScreen} />
 
       <Stack.Screen name="TabHome" component={MenuTabs} />
-      <Stack.Screen name="MeditationPratice" component={MeditaionPraticeScreen} />
-      <Stack.Screen name="AddGratitude" component={AddGratitudeScreen} />
+      <Stack.Screen name="MeditationPractice" component={screens.MeditaionPracticeScreen} />
+      <Stack.Screen name="AddGratitude" component={screens.AddGratitudeScreen} />
     </Stack.Navigator>
   );
 };

@@ -10,7 +10,7 @@ const StartMeditationScreen = () => {
       <Text>Tela Iniciar meditação</Text>
       <Text>conteúdo</Text>
 
-      <TouchableOpacity onPress={() => navigation.navigate('MeditationPratice')}><Text>Iniciar a meditação</Text></TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('MeditationPractice')}><Text>Iniciar a meditação</Text></TouchableOpacity>
     </SafeAreaView>
   );
 };

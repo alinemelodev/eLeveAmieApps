@@ -2,6 +2,6 @@ type RootStackParamList = {
   SplashScreen: undefined;
   Hello: undefined;
   TabHome: undefined;
-  MeditationPratice: undefined;
+  MeditationPractice: undefined;
   AddGratitude: undefined;
 };
