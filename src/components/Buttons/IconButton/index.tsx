@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {TouchableOpacity, TouchableOpacityProps} from 'react-native';
 
 interface ButtonProps extends TouchableOpacityProps {

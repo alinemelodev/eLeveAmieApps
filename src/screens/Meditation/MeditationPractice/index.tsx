@@ -1,13 +1,6 @@
 import React, {useState} from 'react';
 
-import {
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  View,
-  StyleSheet,
-  Animated,
-} from 'react-native';
+import {Text, View, StyleSheet, Animated} from 'react-native';
 
 import {colors} from '../../../styles/colors/colors';
 import {fonts} from '../../../styles/fonts/fonts';
@@ -17,6 +10,8 @@ import CountdownTimer from '../../../components/MeditationScreens/CountdownTimer
 import Countdown from '../../../components/MeditationScreens/Countdown';
 
 import StartIcon from '../../../images/svg/icons/ic_play.svg';
+import MainLayout from '../../../styles/layouts/MainLayout';
+import RoundButton from '../../../components/Buttons/RoundButton';
 
 const MeditationPractice = () => {
   const [start, setStart] = useState(false);
@@ -48,14 +43,13 @@ const MeditationPractice = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Tela Prática de Meditação</Text>
-
+    <MainLayout titleHeader="Meditação">
       <View style={styles.content}>
         {!start && !showBreathingCircle && !showEndMessage ? (
-          <TouchableOpacity style={styles.startButton} onPress={startPractice}>
-            <StartIcon width={50} />
-          </TouchableOpacity>
+          <RoundButton
+            icon={<StartIcon width={50} />}
+            onPress={startPractice}
+          />
         ) : (
           start &&
           !showBreathingCircle && (
@@ -80,16 +74,11 @@ const MeditationPractice = () => {
           </View>
         )}
       </View>
-    </SafeAreaView>
+    </MainLayout>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: colors.pink100,
-  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -99,14 +88,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  startButton: {
-    backgroundColor: colors.green300,
-    width: 100,
-    height: 100,
-    borderRadius: 100,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   animatedContainer: {
     alignItems: 'center',

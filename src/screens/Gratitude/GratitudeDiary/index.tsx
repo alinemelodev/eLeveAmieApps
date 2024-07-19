@@ -1,11 +1,14 @@
-import {SafeAreaView, Text} from 'react-native';
+import React from 'react';
+
+import {Text} from 'react-native';
+
+import MainLayout from '../../../styles/layouts/MainLayout';
 
 const GratitudeDiaryScreen = () => {
   return (
-    <SafeAreaView style={{height: '100%', width: '100%'}}>
-      <Text>Tela Diário de gratidão</Text>
-      <Text>conteúdo</Text>
-    </SafeAreaView>
+    <MainLayout titleHeader="Gratidão">
+      <Text>Diário de gratidão</Text>
+    </MainLayout>
   );
 };
 

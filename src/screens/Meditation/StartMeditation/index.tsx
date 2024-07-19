@@ -1,11 +1,22 @@
-import {SafeAreaView, Text} from 'react-native';
+import React from 'react';
+
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
+import MainLayout from '../../../styles/layouts/MainLayout';
+import PrimaryButton from '../../../components/Buttons/PrimaryButton';
 
 const StartMeditationScreen = () => {
+  const navigation: NativeStackNavigationProp<RootStackParamList> =
+    useNavigation();
+
   return (
-    <SafeAreaView style={{height: '100%', width: '100%'}}>
-      <Text>Tela Iniciar meditação</Text>
-      <Text>conteúdo</Text>
-    </SafeAreaView>
+    <MainLayout titleHeader="Meditação">
+      <PrimaryButton
+        title="Ir para a meditação"
+        onPress={() => navigation.navigate('MeditationPractice')}
+      />
+    </MainLayout>
   );
 };
 
