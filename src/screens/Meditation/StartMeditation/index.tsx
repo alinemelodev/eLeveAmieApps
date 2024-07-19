@@ -12,6 +12,7 @@ const StartMeditationScreen = () => {
 
   return (
     <MainLayout titleHeader="Meditação">
+      
       <PrimaryButton
         title="Ir para a meditação"
         onPress={() => navigation.navigate('MeditationPractice')}
