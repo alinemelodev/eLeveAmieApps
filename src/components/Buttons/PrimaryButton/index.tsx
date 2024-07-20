@@ -13,7 +13,7 @@ import {colors} from '../../../styles/colors/colors';
 import {fonts} from '../../../styles/fonts/fonts';
 
 interface ButtonProps extends TouchableOpacityProps {
-  title: string;
+  title: string | number;
   icon?: React.ReactNode;
   width?: number;
   textSize?: number;

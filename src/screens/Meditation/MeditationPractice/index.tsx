@@ -5,13 +5,13 @@ import {Text, View, StyleSheet, Animated} from 'react-native';
 import {colors} from '../../../styles/colors/colors';
 import {fonts} from '../../../styles/fonts/fonts';
 
+import MainLayout from '../../../styles/layouts/MainLayout';
+import Countdown from '../../../components/MeditationScreens/Countdown';
 import BreathingCircle from '../../../components/MeditationScreens/BreathingCircle';
 import CountdownTimer from '../../../components/MeditationScreens/CountdownTimer';
-import Countdown from '../../../components/MeditationScreens/Countdown';
+import RoundButton from '../../../components/Buttons/RoundButton';
 
 import StartIcon from '../../../images/svg/icons/ic_play.svg';
-import MainLayout from '../../../styles/layouts/MainLayout';
-import RoundButton from '../../../components/Buttons/RoundButton';
 
 const MeditationPractice = () => {
   const [start, setStart] = useState(false);
