@@ -17,6 +17,7 @@ interface ButtonProps extends TouchableOpacityProps {
   icon?: React.ReactNode;
   width?: number;
   textSize?: number;
+  textColor?: string;
   type?: string;
   disabled?: boolean;
   loading?: boolean;
@@ -28,6 +29,7 @@ const PrimaryButton = ({
   icon,
   width,
   textSize,
+  textColor = colors.white,
   type,
   loading,
   disabled,
@@ -43,7 +45,7 @@ const PrimaryButton = ({
   const renderContent = () => (
     <>
       {loading ? (
-        <ActivityIndicator color={colors.white} size={30}/>
+        <ActivityIndicator color={colors.white} size={30} />
       ) : (
         <>
           {icon ? (
@@ -52,11 +54,19 @@ const PrimaryButton = ({
                 styles.textIconBox,
                 {justifyContent: icon ? 'space-between' : 'center'},
               ]}>
-              <Text style={[styles.text, {fontSize: 18}]}>{title}</Text>
+              <Text style={[styles.text, {fontSize: 18, color: textColor}]}>
+                {title}
+              </Text>
               {icon}
             </View>
           ) : (
-            <Text style={[styles.text, {fontSize: textSize || 18}]}>{title}</Text>
+            <Text
+              style={[
+                styles.text,
+                {fontSize: textSize || 18, color: textColor},
+              ]}>
+              {title}
+            </Text>
           )}
         </>
       )}
@@ -73,8 +83,8 @@ const PrimaryButton = ({
         },
       ]}
       onPress={handleOnPress}
-      disabled={disabled || loading} 
-    {...props}>
+      disabled={disabled || loading}
+      {...props}>
       {renderContent()}
     </TouchableOpacity>
   );
@@ -90,7 +100,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: fonts.karla.bold,
-    color: colors.white,
   },
   textIconBox: {
     flexDirection: 'row',
