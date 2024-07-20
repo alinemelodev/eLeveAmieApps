@@ -53,12 +53,12 @@ const HooponoponoScreen = () => {
     <MainLayout titleHeader={"Ho'oponopono"}>
       <View style={styles.topButtons}>
         <IconButton icon={<InfoIcon width={30} height={30} />} />
-        {count !== 10 && <RoundButton title="zerar" onPress={clearCount} />}
+        {count !== 108 && <RoundButton title="zerar" onPress={clearCount} />}
       </View>
       <View style={styles.container}>
         <PrayingBeadsImage width={80} />
         <View style={styles.textContainer}>
-          {count !== 10 ? (
+          {count !== 108 ? (
             <>
               <CustomText
                 text="Sinto muito"
@@ -108,7 +108,7 @@ const HooponoponoScreen = () => {
             </>
           )}
         </View>
-        {count !== 10 ? (
+        {count !== 108 ? (
           <PrimaryButton
             title={count.toString()}
             onPress={handleCount}
