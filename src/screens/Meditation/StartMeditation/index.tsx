@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import MainLayout from '../../../styles/layouts/MainLayout';
-import PrimaryButton from '../../../components/Buttons/PrimaryButton';
+import Buttons from '../../../components/Buttons';
 
 const StartMeditationScreen = () => {
   const navigation: NativeStackNavigationProp<RootStackParamList> =
@@ -13,7 +13,7 @@ const StartMeditationScreen = () => {
   return (
     <MainLayout titleHeader="Meditação">
       
-      <PrimaryButton
+      <Buttons.PrimaryButton
         title="Ir para a meditação"
         onPress={() => navigation.navigate('MeditationPractice')}
       />

@@ -6,7 +6,7 @@ import {colors} from '../../styles/colors/colors';
 import {fonts} from '../../styles/fonts/fonts';
 
 import MainLayout from '../../styles/layouts/MainLayout';
-import CustomText from '../../components/CustomText';
+import CustomText from '../../components/Texts/CustomText';
 import TouchableImage from '../../components/Buttons/TouchableImage';
 
 const HomeScreen = () => {

@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 
-import { Animated, Dimensions, StyleSheet, View } from 'react-native';
+import {Animated, Dimensions, StyleSheet, View} from 'react-native';
 
-import { colors } from '../../styles/colors/colors';
+import {colors} from '../../../styles/colors/colors';
 
 interface ConferttiAnimationProps {
-    showConfetti: boolean;
+  showConfetti: boolean;
 }
 
-const ConfettiAnimation = ({ showConfetti }: ConferttiAnimationProps) => {
-  const confettiAnimations = Array.from({ length: 100 }).map(
+const ConfettiAnimation = ({showConfetti}: ConferttiAnimationProps) => {
+  const confettiAnimations = Array.from({length: 100}).map(
     () => new Animated.Value(0),
   );
 
@@ -25,11 +25,7 @@ const ConfettiAnimation = ({ showConfetti }: ConferttiAnimationProps) => {
     }
   }, [showConfetti]);
 
-  const confettiColors = [
-    colors.pink500,
-    colors.pink300,
-    colors.green300,
-  ];
+  const confettiColors = [colors.pink500, colors.pink300, colors.green300];
 
   return (
     <View style={StyleSheet.absoluteFill}>
@@ -41,7 +37,7 @@ const ConfettiAnimation = ({ showConfetti }: ConferttiAnimationProps) => {
               styles.confetti,
               {
                 backgroundColor: confettiColors[index % confettiColors.length],
-                transform: [{ translateY: animation }],
+                transform: [{translateY: animation}],
                 left: Math.random() * Dimensions.get('window').width,
               },
             ]}

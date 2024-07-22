@@ -2,8 +2,8 @@ import React from 'react';
 
 import {Text, TextProps} from 'react-native';
 
-import {fonts} from '../../styles/fonts/fonts';
-import {colors} from '../../styles/colors/colors';
+import {fonts} from '../../../styles/fonts/fonts';
+import {colors} from '../../../styles/colors/colors';
 
 interface CustomTextProps extends TextProps {
   text: string;

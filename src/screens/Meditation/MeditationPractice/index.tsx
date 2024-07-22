@@ -6,10 +6,8 @@ import {colors} from '../../../styles/colors/colors';
 import {fonts} from '../../../styles/fonts/fonts';
 
 import MainLayout from '../../../styles/layouts/MainLayout';
-import Countdown from '../../../components/MeditationScreens/Countdown';
-import BreathingCircle from '../../../components/MeditationScreens/BreathingCircle';
-import CountdownTimer from '../../../components/MeditationScreens/CountdownTimer';
-import RoundButton from '../../../components/Buttons/RoundButton';
+import Components from '../../../components/MeditationScreens';
+import Buttons from '../../../components/Buttons';
 
 import StartIcon from '../../../images/svg/icons/ic_play.svg';
 
@@ -46,21 +44,21 @@ const MeditationPractice = () => {
     <MainLayout titleHeader="Meditação">
       <View style={styles.content}>
         {!start && !showBreathingCircle && !showEndMessage ? (
-          <RoundButton
+          <Buttons.RoundButton
             icon={<StartIcon width={50} />}
             onPress={startPractice}
           />
         ) : (
           start &&
           !showBreathingCircle && (
-            <Countdown onComplete={showPracticeComponents} />
+            <Components.Countdown onComplete={showPracticeComponents} />
           )
         )}
 
         {showBreathingCircle && (
           <Animated.View style={[styles.animatedContainer, {opacity}]}>
-            <BreathingCircle />
-            <CountdownTimer
+            <Components.BreathingCircle />
+            <Components.CountdownTimer
               initialTime={breathingCycleDuration}
               onTimeEnd={handleTimeEnd}
             />

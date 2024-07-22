@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 
 import {View, Text} from 'react-native';
-import {fonts} from '../../styles/fonts/fonts';
-import {colors} from '../../styles/colors/colors';
+
+import {fonts} from '../../../styles/fonts/fonts';
+import {colors} from '../../../styles/colors/colors';
 
 interface CountdownProps {
   onComplete: () => void;

@@ -2,8 +2,8 @@ import React, {useEffect, useRef, useState} from 'react';
 
 import {View, Animated, Easing, StyleSheet, Text} from 'react-native';
 
-import {colors} from '../../styles/colors/colors';
-import { fonts } from '../../styles/fonts/fonts';
+import {colors} from '../../../styles/colors/colors';
+import {fonts} from '../../../styles/fonts/fonts';
 
 const BreathingCircle: React.FC = () => {
   const radius = useRef(new Animated.Value(50)).current;
