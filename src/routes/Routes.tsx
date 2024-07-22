@@ -98,8 +98,14 @@ export const Routes = () => {
       <Stack.Screen name="Hello" component={screens.HelloScreen} />
 
       <Stack.Screen name="TabHome" component={MenuTabs} />
-      <Stack.Screen name="MeditationPractice" component={screens.MeditaionPracticeScreen} />
-      <Stack.Screen name="AddGratitude" component={screens.AddGratitudeScreen} />
+      <Stack.Screen
+        name="MeditationPractice"
+        component={screens.MeditaionPracticeScreen}
+      />
+      <Stack.Screen
+        name="AddGratitude"
+        component={screens.AddGratitudeScreen}
+      />
     </Stack.Navigator>
   );
 };

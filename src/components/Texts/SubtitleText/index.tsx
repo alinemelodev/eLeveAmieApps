@@ -15,7 +15,7 @@ const SubtitleText: React.FC<SubtitleTextProps> = ({text, style}) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: fonts.karla.regular,
+    fontFamily: fonts.karla.medium,
     fontSize: 20,
     color: colors.pink300,
     textAlign: 'left',

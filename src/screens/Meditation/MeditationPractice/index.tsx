@@ -5,17 +5,28 @@ import {Text, View, StyleSheet, Animated} from 'react-native';
 import {colors} from '../../../styles/colors/colors';
 import {fonts} from '../../../styles/fonts/fonts';
 
+import {useMeditationContext} from '../../../providers/MeditationContext';
+
 import MainLayout from '../../../styles/layouts/MainLayout';
 import Components from '../../../components/MeditationScreens';
 import Buttons from '../../../components/Buttons';
 
 import StartIcon from '../../../images/svg/icons/ic_play.svg';
+import SubtitleBar from '../../../components/SubtitleBar';
 
 const MeditationPractice = () => {
-  const [start, setStart] = useState(false);
-  const [showBreathingCircle, setShowBreathingCircle] = useState(false);
-  const [showEndMessage, setShowEndMessage] = useState(false);
-  const [breathingCycleDuration, setBreathingCycleDuration] = useState(20);
+  const {
+    start,
+    setStart,
+    showBreathingCircle,
+    setShowBreathingCircle,
+    showEndMessage,
+    setShowEndMessage,
+    breathingCycleDuration,
+    setBreathingCycleDuration,
+    setSelectedTime,
+    cleanStates,
+  } = useMeditationContext();
   const [opacity] = useState(new Animated.Value(1));
 
   const startPractice = () => {
@@ -36,12 +47,18 @@ const MeditationPractice = () => {
       useNativeDriver: true,
     }).start(() => {
       setShowBreathingCircle(false);
+      setBreathingCycleDuration(null);
+      setSelectedTime(null);
       setShowEndMessage(true);
     });
   };
 
   return (
     <MainLayout titleHeader="Meditação">
+      <SubtitleBar
+        subtitle="Respiração em 4 tempos"
+        additionalAction={cleanStates}
+      />
       <View style={styles.content}>
         {!start && !showBreathingCircle && !showEndMessage ? (
           <Buttons.RoundButton
@@ -59,7 +76,7 @@ const MeditationPractice = () => {
           <Animated.View style={[styles.animatedContainer, {opacity}]}>
             <Components.BreathingCircle />
             <Components.CountdownTimer
-              initialTime={breathingCycleDuration}
+              initialTime={breathingCycleDuration!}
               onTimeEnd={handleTimeEnd}
             />
           </Animated.View>

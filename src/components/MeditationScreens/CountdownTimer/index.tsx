@@ -14,7 +14,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({
   initialTime,
   onTimeEnd,
 }) => {
-  const [timer, setTimer] = useState(initialTime);
+  const [timer, setTimer] = useState(initialTime | 0);
 
   useEffect(() => {
     const timerInterval = setInterval(() => {

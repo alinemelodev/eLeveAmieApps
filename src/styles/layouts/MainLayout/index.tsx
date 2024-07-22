@@ -32,9 +32,10 @@ const styles = StyleSheet.create({
     width: '100%',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    backgroundColor: colors.white,
+    backgroundColor: colors.pink100,
     overflow: 'hidden',
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 30,
   },
 });
 
