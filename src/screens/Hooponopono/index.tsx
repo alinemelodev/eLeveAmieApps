@@ -1,15 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 
-import {View, StyleSheet, Animated, Dimensions} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-import {fonts} from '../../styles/fonts/fonts';
-import {colors} from '../../styles/colors/colors';
+import { fonts } from '../../styles/fonts/fonts';
+import { colors } from '../../styles/colors/colors';
 
 import MainLayout from '../../styles/layouts/MainLayout';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import CustomText from '../../components/CustomText';
 import RoundButton from '../../components/Buttons/RoundButton';
 import IconButton from '../../components/Buttons/IconButton';
+import ConfettiAnimation from '../../components/HooponoponoScreen/ConfettiAnimation';
 
 import PrayingBeadsImage from '../../images/svg/icons/ic_praying_beads_page.svg';
 import InfoIcon from '../../images/svg/icons/ic_info.svg';
@@ -17,9 +18,6 @@ import InfoIcon from '../../images/svg/icons/ic_info.svg';
 const HooponoponoScreen = () => {
   const [count, setCount] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
-  const confettiAnimations = Array.from({length: 100}).map(
-    () => new Animated.Value(0),
-  );
 
   const handleCount = () => {
     if (count < 108) setCount(count + 1);
@@ -30,24 +28,6 @@ const HooponoponoScreen = () => {
     setCount(0);
     setShowConfetti(false);
   };
-
-  useEffect(() => {
-    if (showConfetti) {
-      confettiAnimations.forEach((animation, index) => {
-        Animated.timing(animation, {
-          toValue: Dimensions.get('window').height,
-          duration: 1500 + index * 50,
-          useNativeDriver: true,
-        }).start();
-      });
-    }
-  }, [showConfetti]);
-
-  const confettiColors = [
-    colors.pink500,
-    colors.pink300,
-    colors.green300,
-  ];
 
   return (
     <MainLayout titleHeader={"Ho'oponopono"}>
@@ -118,20 +98,7 @@ const HooponoponoScreen = () => {
           <PrimaryButton title="Reiniciar" onPress={clearCount} textSize={24} />
         )}
       </View>
-      {showConfetti &&
-        confettiAnimations.map((animation, index) => (
-          <Animated.View
-            key={index}
-            style={[
-              styles.confetti,
-              {
-                backgroundColor: confettiColors[index % confettiColors.length],
-                transform: [{translateY: animation}],
-                left: Math.random() * Dimensions.get('window').width,
-              },
-            ]}
-          />
-        ))}
+      <ConfettiAnimation showConfetti={showConfetti} />
     </MainLayout>
   );
 };
@@ -151,13 +118,6 @@ const styles = StyleSheet.create({
   textContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  confetti: {
-    position: 'absolute',
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    top: -10,
   },
 });
 
