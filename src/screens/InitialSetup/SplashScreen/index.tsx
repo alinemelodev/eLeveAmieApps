@@ -20,7 +20,7 @@ const SplashScreen = () => {
         if (username) navigation.navigate('TabHome');
         else navigation.navigate('Hello');
       } catch (error) {
-        console.error('Erro ao acessar o armazenamento: ', error);
+        console.error(error);
       }
     };
 

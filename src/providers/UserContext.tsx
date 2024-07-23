@@ -6,6 +6,7 @@ interface UserContextType {
   username: string | null;
   setUsername: React.Dispatch<React.SetStateAction<string | null>>;
   clearUserData: () => void;
+  getGreeting: () => string;
 }
 
 const UserContext = createContext({} as UserContextType);
@@ -22,12 +23,21 @@ export const UserProvider: React.FC<{children: ReactNode}> = ({children}) => {
     }
   };
 
+  const getGreeting = () => {
+    const hours = new Date().getHours();
+    if (hours < 12) return 'Bom dia';
+    if (hours < 18) return 'Boa tarde';
+    if (hours >= 18) return 'Boa tarde';
+    return 'Olá';
+  };
+
   return (
     <UserContext.Provider
       value={{
         username,
         setUsername,
-        clearUserData, 
+        clearUserData,
+        getGreeting,
       }}>
       {children}
     </UserContext.Provider>
