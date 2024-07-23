@@ -70,14 +70,15 @@ const StartMeditationScreen = () => {
           </View>
         </View>
 
-        <Texts.ParagraphText text="Quando estiver preparado pressione o botão iniciar." />
-        <Texts.ParagraphText text="Boa prática :)" />
-
         {selectedTime && (
-          <Buttons.PrimaryButton
-            title="Ir para a meditação"
-            onPress={() => navigation.navigate('MeditationPractice')}
-          />
+          <>
+            <Texts.ParagraphText text="Quando estiver preparado pressione o botão iniciar." />
+            <Texts.ParagraphText text="Boa prática :)" />
+            <Buttons.PrimaryButton
+              title="Iniciar"
+              onPress={() => navigation.navigate('MeditationPractice')}
+            />
+          </>
         )}
       </View>
     </MainLayout>

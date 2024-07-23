@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: fonts.karla.medium,
     fontSize: 20,
-    color: colors.pink300,
+    color: colors.pink500,
     textAlign: 'left',
   },
 });
