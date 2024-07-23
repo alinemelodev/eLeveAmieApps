@@ -9,6 +9,7 @@ import {Routes} from './src/routes/Routes';
 
 import {UserProvider} from './src/providers/UserContext';
 import {MeditationProvider} from './src/providers/MeditationContext';
+import {GratitudeProvider} from './src/providers/GratitudeContext';
 
 const App = (): React.JSX.Element => {
   return (
@@ -16,9 +17,11 @@ const App = (): React.JSX.Element => {
       <StatusBar barStyle={'light-content'} backgroundColor={colors.pink300} />
       <NavigationContainer>
         <UserProvider>
-          <MeditationProvider>
-            <Routes />
-          </MeditationProvider>
+          <GratitudeProvider>
+            <MeditationProvider>
+              <Routes />
+            </MeditationProvider>
+          </GratitudeProvider>
         </UserProvider>
       </NavigationContainer>
     </>

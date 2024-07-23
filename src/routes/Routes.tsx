@@ -39,27 +39,27 @@ const MenuTabs = () => {
           let icon;
           if (route.name === 'Home') {
             icon = focused ? (
-              <LotusIconActive width={30} />
+              <LotusIconActive width={33} />
             ) : (
-              <LotusIconInactive width={30} />
+              <LotusIconInactive width={33} />
             );
           } else if (route.name === 'Ho oponopono') {
             icon = focused ? (
-              <HooponoponoIconActive width={30} />
+              <HooponoponoIconActive width={33} />
             ) : (
-              <HooponoponoIconInactive width={30} />
+              <HooponoponoIconInactive width={33} />
             );
           } else if (route.name === 'e Leve') {
             icon = focused ? (
-              <LogoIcon width={30} height={30} />
+              <LogoIcon width={33} height={33} />
             ) : (
-              <LogoIcon width={30} height={30} />
+              <LogoIcon width={33} height={33} />
             );
           } else if (route.name === 'Meditação') {
             icon = focused ? (
-              <MeditationIconActive width={30} />
+              <MeditationIconActive width={33} />
             ) : (
-              <MeditationIconInactive width={30} />
+              <MeditationIconInactive width={33} />
             );
           } else if (route.name === 'Gratidão') {
             icon = focused ? (
