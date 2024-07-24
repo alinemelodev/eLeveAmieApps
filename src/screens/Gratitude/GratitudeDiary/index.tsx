@@ -45,7 +45,7 @@ const GratitudeDiaryScreen = () => {
   }, []);
   return (
     <MainLayout titleHeader="Gratidão">
-      <SubtitleBar subtitle="Diário de gratidão" />
+      <SubtitleBar subtitle="Diário de Gratidão" />
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollView}>
           <View style={styles.content}>

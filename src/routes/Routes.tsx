@@ -106,6 +106,10 @@ export const Routes = () => {
         name="AddGratitude"
         component={screens.AddGratitudeScreen}
       />
+      <Stack.Screen
+        name="StoredInfoSettings"
+        component={screens.StoredInfoSettings}
+      />
     </Stack.Navigator>
   );
 };

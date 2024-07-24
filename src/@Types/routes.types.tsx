@@ -4,4 +4,5 @@ type RootStackParamList = {
   TabHome: undefined;
   MeditationPractice: undefined;
   AddGratitude: undefined;
+  StoredInfoSettings: undefined;
 };

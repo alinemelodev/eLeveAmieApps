@@ -2,16 +2,20 @@ import React from 'react';
 
 import {View, StyleSheet, Share, ScrollView} from 'react-native';
 
-import {colors} from '../../styles/colors/colors';
+import {colors} from '../../../styles/colors/colors';
 
-import MainLayout from '../../styles/layouts/MainLayout';
-import Buttons from '../../components/Buttons';
-import Texts from '../../components/Texts';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 
-import ShareIcon from '../../images/svg/icons/ic_share.svg';
-import FolderIcon from '../../images/svg/icons/ic_folder.svg';
+import MainLayout from '../../../styles/layouts/MainLayout';
+import Buttons from '../../../components/Buttons';
+import Texts from '../../../components/Texts';
+
+import ShareIcon from '../../../images/svg/icons/ic_share.svg';
+import FolderIcon from '../../../images/svg/icons/ic_folder.svg';
 
 const AboutScreen = () => {
+  const navigation: NativeStackNavigationProp<RootStackParamList> = useNavigation();
   const message = 'Confira nosso aplicativo!';
   const url = 'https://play.google.com/store/apps/details?id=com.eleveamieapps';
   const shareContent = async () => {
@@ -53,7 +57,7 @@ const AboutScreen = () => {
               <Buttons.PrimaryButton
                 title="Gerenciar"
                 icon={<FolderIcon width={30} height={30} />}
-                onPress={() => {}}
+                onPress={() => navigation.navigate('StoredInfoSettings')}
               />
             </View>
           </View>

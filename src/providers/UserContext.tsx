@@ -27,7 +27,7 @@ export const UserProvider: React.FC<{children: ReactNode}> = ({children}) => {
     const hours = new Date().getHours();
     if (hours < 12) return 'Bom dia';
     if (hours < 18) return 'Boa tarde';
-    if (hours >= 18) return 'Boa tarde';
+    if (hours >= 18) return 'Boa noite';
     return 'Olá';
   };
 
