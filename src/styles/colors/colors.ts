@@ -8,7 +8,7 @@ export const colors = {
   pink300: '#E2A3C7',
   pink500: '#D67AB1',
   purple700: '#60435F',
-  purple700_alpha: '#60435F85', 
+  purple700_alpha: '#60435FCC',
 
   green300: '#A8DCD9',
 };

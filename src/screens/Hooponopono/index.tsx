@@ -9,9 +9,11 @@ import MainLayout from '../../styles/layouts/MainLayout';
 import Buttons from '../../components/Buttons';
 import Texts from '../../components/Texts';
 import Components from '../../components/HooponoponoScreen';
+import SubtitleBar from '../../components/SubtitleBar';
 
 import PrayingBeadsImage from '../../images/svg/icons/ic_praying_beads_page.svg';
-import InfoIcon from '../../images/svg/icons/ic_info.svg';
+
+import {infoTexts} from '../../assets/texts/infoTexts';
 
 const HooponoponoScreen = () => {
   const [count, setCount] = useState(0);
@@ -29,9 +31,15 @@ const HooponoponoScreen = () => {
 
   return (
     <MainLayout titleHeader={"Ho'oponopono"}>
-      <View style={styles.topButtons}>
-        <Buttons.IconButton icon={<InfoIcon width={30} height={30} />} />
-        {count !== 108 && <Buttons.RoundButton title="zerar" onPress={clearCount} />}
+      <SubtitleBar
+        showBackButton={false}
+        infoTitle={infoTexts.hooponopono.title}
+        infoText={infoTexts.hooponopono.text}
+      />
+      <View style={styles.topButton}>
+        {count !== 108 && (
+          <Buttons.RoundButton title="zerar" onPress={clearCount} />
+        )}
       </View>
       <View style={styles.container}>
         <PrayingBeadsImage width={80} />
@@ -53,14 +61,14 @@ const HooponoponoScreen = () => {
                 align="center"
               />
               <Texts.CustomText
-                text="Sou grato(a)"
+                text="Te amo"
                 family={fonts.karla.medium}
                 color={colors.purple700}
                 size={24}
                 align="center"
               />
               <Texts.CustomText
-                text="Eu te amo"
+                text="Obrigado(a)"
                 family={fonts.karla.medium}
                 color={colors.purple700}
                 size={24}
@@ -93,7 +101,11 @@ const HooponoponoScreen = () => {
             textSize={40}
           />
         ) : (
-          <Buttons.PrimaryButton title="Reiniciar" onPress={clearCount} textSize={24} />
+          <Buttons.PrimaryButton
+            title="Reiniciar"
+            onPress={clearCount}
+            textSize={24}
+          />
         )}
       </View>
       <Components.ConfettiAnimation showConfetti={showConfetti} />
@@ -102,10 +114,10 @@ const HooponoponoScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  topButtons: {
-    flexDirection: 'row-reverse',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
+  topButton: {
+    position: 'absolute',
+    top: 30,
+    left: 30,
   },
   container: {
     flex: 1,

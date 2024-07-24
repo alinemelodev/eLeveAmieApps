@@ -7,13 +7,15 @@ import {colors} from '../../../styles/colors/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {useUserContext} from '../../../providers/UserContext';
-import { useGratitudeContext } from '../../../providers/GratitudeContext';
+import {useGratitudeContext} from '../../../providers/GratitudeContext';
 
 import MainLayout from '../../../styles/layouts/MainLayout';
 import Buttons from '../../../components/Buttons';
 import Texts from '../../../components/Texts';
 import Input from '../../../components/Input';
 import SubtitleBar from '../../../components/SubtitleBar';
+
+import {infoTexts} from '../../../assets/texts/infoTexts';
 
 const StoredInfoSettings = () => {
   const {setUsername} = useUserContext();
@@ -35,12 +37,16 @@ const StoredInfoSettings = () => {
       await AsyncStorage.setItem('username', inputValue);
       setUsername(inputValue);
     }
-    Keyboard.dismiss()
+    Keyboard.dismiss();
   };
 
   return (
     <MainLayout logoHeader={true}>
-      <SubtitleBar subtitle="Gerenciar informações" />
+      <SubtitleBar
+        subtitle="Gerenciar informações"
+        infoTitle={infoTexts.dataCleansing.title}
+        infoText={infoTexts.dataCleansing.text}
+      />
       <View style={styles.container}>
         <View style={{gap: 20}}>
           <Texts.CustomText
@@ -54,9 +60,12 @@ const StoredInfoSettings = () => {
             errorMessage={error}
             isError={!!error}
           />
-          <Buttons.PrimaryButton title="Salvar ateração" onPress={handlePress} />
+          <Buttons.PrimaryButton
+            title="Salvar ateração"
+            onPress={handlePress}
+          />
         </View>
-        <View style={{gap: 20}}> 
+        <View style={{gap: 20}}>
           <Texts.CustomText
             text="Exluir todos os dados salvos no seu Diário de Gratidão"
             size={18}

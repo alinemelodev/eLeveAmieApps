@@ -13,6 +13,8 @@ import SelectableButton from '../../../components/Buttons/SelectableButton';
 import Buttons from '../../../components/Buttons';
 import Texts from '../../../components/Texts';
 
+import { infoTexts } from '../../../assets/texts/infoTexts';
+
 const StartMeditationScreen = () => {
   const navigation: NativeStackNavigationProp<RootStackParamList> =
     useNavigation();
@@ -42,6 +44,8 @@ const StartMeditationScreen = () => {
           subtitle="Respiração em 4 tempos"
           showBackButton={false}
           additionalAction={cleanStates}
+          infoTitle={infoTexts.meditation.fourPartBreathing.title}
+          infoText={infoTexts.meditation.fourPartBreathing.text}
         />
 
         <Texts.ParagraphText text="Escolha o tempo de duração da sua prática" />

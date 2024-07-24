@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 
 import {ScrollView, StyleSheet, View} from 'react-native';
 
+import {colors} from '../../../styles/colors/colors';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {useNavigation} from '@react-navigation/native';
@@ -16,7 +18,8 @@ import Components from '../../../components/GratitudeScreens';
 import Texts from '../../../components/Texts';
 
 import PlusIcon from '../../../images/svg/icons/ic_plus_math.svg';
-import {colors} from '../../../styles/colors/colors';
+
+import { infoTexts } from '../../../assets/texts/infoTexts';
 
 const GratitudeDiaryScreen = () => {
   const navigation: NativeStackNavigationProp<RootStackParamList> =
@@ -45,7 +48,7 @@ const GratitudeDiaryScreen = () => {
   }, []);
   return (
     <MainLayout titleHeader="Gratidão">
-      <SubtitleBar subtitle="Diário de Gratidão" />
+      <SubtitleBar subtitle="Diário de Gratidão" infoTitle={infoTexts.gratitudeDiary.title} infoText={infoTexts.gratitudeDiary.text}/>
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollView}>
           <View style={styles.content}>
