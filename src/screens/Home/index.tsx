@@ -35,7 +35,7 @@ const HomeScreen = () => {
             family={fonts.karla.medium}
           />
           <CustomText text="Que bom te ver por aqui :)" />
-          <CustomText text="Escolha uma prática e eleve o seu tempo com você." />
+          <CustomText text="Eleve-se e sinta-se leve com cada prática." />
           <TouchableImage practice="hooponopono" />
           <TouchableImage practice="meditation" />
           <TouchableImage practice="gratitude" />

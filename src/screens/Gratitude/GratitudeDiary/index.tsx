@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {ScrollView, StyleSheet, View} from 'react-native';
 
@@ -19,12 +19,18 @@ import Texts from '../../../components/Texts';
 
 import PlusIcon from '../../../images/svg/icons/ic_plus_math.svg';
 
-import { infoTexts } from '../../../assets/texts/infoTexts';
+import {infoTexts} from '../../../assets/texts/infoTexts';
+import Modals from '../../../components/Modals';
 
 const GratitudeDiaryScreen = () => {
   const navigation: NativeStackNavigationProp<RootStackParamList> =
     useNavigation();
   const {gratitudes, setGratitudes} = useGratitudeContext();
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [gratitudeToDelete, setGratitudeToDelete] = useState<string | null>(
+    null,
+  );
 
   const sortedDates = Object.keys(gratitudes).sort(
     (a, b) => new Date(b).getTime() - new Date(a).getTime(),
@@ -32,6 +38,34 @@ const GratitudeDiaryScreen = () => {
 
   const hasGratitudes = () => {
     return sortedDates.some(date => gratitudes[date].length > 0);
+  };
+
+  const handleDeleteGratitude = (date: string, index: number) => {
+    const newGratitudes = {...gratitudes};
+    newGratitudes[date].splice(index, 1);
+    if (newGratitudes[date].length === 0) {
+      delete newGratitudes[date];
+    }
+    setGratitudes(newGratitudes);
+    AsyncStorage.setItem('gratitudes', JSON.stringify(newGratitudes));
+  };
+
+  const handleDeletePress = (date: string, index: number) => {
+    setGratitudeToDelete(`${date}:${index}`);
+    setIsModalVisible(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+    setGratitudeToDelete(null);
+  };
+
+  const handleModalConfirm = () => {
+    if (gratitudeToDelete) {
+      const [date, index] = gratitudeToDelete.split(':');
+      handleDeleteGratitude(date, parseInt(index));
+    }
+    handleModalClose();
   };
 
   useEffect(() => {
@@ -46,9 +80,14 @@ const GratitudeDiaryScreen = () => {
 
     loadGratitudes();
   }, []);
+
   return (
     <MainLayout titleHeader="Gratidão">
-      <SubtitleBar subtitle="Diário de Gratidão" infoTitle={infoTexts.gratitudeDiary.title} infoText={infoTexts.gratitudeDiary.text}/>
+      <SubtitleBar
+        subtitle="Diário de Gratidão"
+        infoTitle={infoTexts.gratitudeDiary.title}
+        infoText={infoTexts.gratitudeDiary.text}
+      />
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollView}>
           <View style={styles.content}>
@@ -66,7 +105,11 @@ const GratitudeDiaryScreen = () => {
               <View key={date} style={{gap: 10}}>
                 <Texts.CustomText text={date} />
                 {gratitudes[date].map((gratitude, index) => (
-                  <Components.GratitudeCard key={index} text={gratitude} />
+                  <Components.GratitudeCard
+                    key={index}
+                    text={gratitude}
+                    onDelete={() => handleDeletePress(date, index)}
+                  />
                 ))}
               </View>
             ))}
@@ -80,6 +123,11 @@ const GratitudeDiaryScreen = () => {
           onPress={() => navigation.navigate('AddGratitude')}
         />
       </View>
+      <Modals.ConfirmDeletionModal
+        visible={isModalVisible}
+        onClose={handleModalClose}
+        onConfirm={handleModalConfirm}
+      />
     </MainLayout>
   );
 };

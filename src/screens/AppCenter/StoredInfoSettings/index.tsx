@@ -14,6 +14,7 @@ import Buttons from '../../../components/Buttons';
 import Texts from '../../../components/Texts';
 import Input from '../../../components/Input';
 import SubtitleBar from '../../../components/SubtitleBar';
+import Modals from '../../../components/Modals';
 
 import {infoTexts} from '../../../assets/texts/infoTexts';
 
@@ -23,6 +24,7 @@ const StoredInfoSettings = () => {
 
   const [inputValue, setInputValue] = useState('');
   const [error, setError] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleInputChange = (text: string) => {
     setInputValue(text);
@@ -38,6 +40,19 @@ const StoredInfoSettings = () => {
       setUsername(inputValue);
     }
     Keyboard.dismiss();
+  };
+
+  const handleDeletePress = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleModalConfirm = () => {
+    clearGratitudeData();
+    handleModalClose();
   };
 
   return (
@@ -61,19 +76,25 @@ const StoredInfoSettings = () => {
             isError={!!error}
           />
           <Buttons.PrimaryButton
-            title="Salvar ateração"
+            title="Salvar alteração"
             onPress={handlePress}
           />
         </View>
         <View style={{gap: 20}}>
           <Texts.CustomText
-            text="Exluir todos os dados salvos no seu Diário de Gratidão"
+            text="Excluir todos os dados salvos no seu Diário de Gratidão"
             size={18}
             color={colors.purple700}
           />
-          <Buttons.PrimaryButton title="Excluir" onPress={clearGratitudeData} />
+          <Buttons.PrimaryButton title="Excluir" onPress={handleDeletePress} />
         </View>
       </View>
+      <Modals.ConfirmDeletionModal
+        visible={isModalVisible}
+        onClose={handleModalClose}
+        onConfirm={handleModalConfirm}
+        text="dos dados do seu Diário de Gratidão"
+      />
     </MainLayout>
   );
 };

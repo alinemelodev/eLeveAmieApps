@@ -1,3 +1,4 @@
 import InfoModal from './InfoModal';
+import ConfirmDeletionModal from './ConfirmDeletionModal';
 
-export default {InfoModal};
+export default {InfoModal, ConfirmDeletionModal};

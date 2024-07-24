@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { View, StyleSheet, ViewStyle } from 'react-native';
+import {View, StyleSheet, ViewStyle} from 'react-native';
 
-import { colors } from '../../../styles/colors/colors';
+import {colors} from '../../../styles/colors/colors';
 
 import Buttons from '../../../components/Buttons';
 import Texts from '../../../components/Texts';
@@ -12,15 +12,22 @@ import DotsIcon from '../../../images/svg/icons/ic_dots.svg';
 interface GratitudeCardProps {
   text: string;
   style?: ViewStyle;
+  onDelete: () => void;
 }
 
-const GratitudeCard: React.FC<GratitudeCardProps> = ({ text, style }) => {
+const GratitudeCard: React.FC<GratitudeCardProps> = ({
+  text,
+  style,
+  onDelete,
+}) => {
   return (
     <View style={[styles.card, style]}>
       <View style={styles.textBox}>
         <Texts.ParagraphText text={text} />
       </View>
-      <Buttons.IconButton icon={<DotsIcon width={30} height={30} />} />
+      <Buttons.IconButton
+        icon={<DotsIcon width={30} height={30} onPress={onDelete} />}
+      />
     </View>
   );
 };
