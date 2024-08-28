@@ -1,3 +1,27 @@
+# e Leve 🧘‍♀️
+
+Um projeto pessoal muito especial, uma plataforma com ferramentas que auxiliam no bem estar e autoconhecimento, como Meditação Guiada, Ho’oponopono e Diário de Gratidão.
+
+As tecnologias que utilizei no desenvolvimento foram React Native (CLI) com TypeScript.
+
+Na mais recente atualização, no dia 28/08/2024, o app recebeu a versão Light/Dark, onde é utilizada por padrão a versão pré-configurada no dispositivo do usuário, porém o usuário pode alterar a sua preferência ao utilizar o e Leve. Versão de código não disponível no Github.
+
+- Figma: https://www.figma.com/design/ZL576GHTdoTWll61TWXKrg/e-Leve?node-id=0-1&t=opbSlrpHyTkIhU3p-0
+- Google Play: https://play.google.com/store/apps/details?id=com.eleveamieapps
+
+![Captura de tela 2024-07-24 195719](https://github.com/user-attachments/assets/e3d3c2f2-4010-4783-bd4c-f58e6ed1d447)
+![Captura de tela 2024-07-24 195844](https://github.com/user-attachments/assets/0440b03b-0d77-44a6-a5b7-b957aa71535c)
+![Captura de tela 2024-07-24 195916](https://github.com/user-attachments/assets/668b79fd-d75a-49c8-a146-fd022f0870ed)
+![Captura de tela 2024-07-24 195937](https://github.com/user-attachments/assets/59e35079-dcfd-430b-9833-efc512cb7fe6)
+
+![Captura de tela 2024-08-28 181751](https://github.com/user-attachments/assets/b8e36f7c-0d24-48e0-9b8c-3c1ec05a8691)
+![Captura de tela 2024-08-28 181803](https://github.com/user-attachments/assets/08d1a4b5-043c-44ee-986f-8ede6d5462cc)
+![Captura de tela 2024-08-28 181855](https://github.com/user-attachments/assets/0e654242-a1a1-418d-902a-4e5ca88d60bd)
+![Captura de tela 2024-08-28 181907](https://github.com/user-attachments/assets/513dc3d0-a795-4369-8324-7c25f319b111)
+
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
